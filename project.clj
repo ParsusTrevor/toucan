@@ -21,7 +21,6 @@
                              [jonase/eastwood "0.3.4"
                               :exclusions [org.clojure/clojure]]
                              [lein-bikeshed "0.5.1"]
-                             [lein-check-namespace-decls "1.0.1"]
                              [lein-expectations "0.0.8"]
                              [lein-shell "0.5.0"]]
                    :jvm-opts ["-Xverify:none"]
