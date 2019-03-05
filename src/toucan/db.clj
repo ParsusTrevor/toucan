@@ -47,6 +47,12 @@
   (or *quoting-style*
       @default-quoting-style))
 
+(defmethod hformat/format-clause :sql-server-order-by [[op v] sqlmap]
+  (str "ORDER BY " (hformat/to-sql (first v))
+       " OFFSET " (str (second v)) " ROWS"
+       " FETCH NEXT " (str (nth v 2))
+       " ROWS ONLY"))
+
 ;;; ### Additional HoneySQL options
 
 ;;; #### Automatically Convert Dashes & Underscores
@@ -401,7 +407,7 @@
   ([model]
    (simple-select-one model {}))
   ([model honeysql-form]
-   (first (simple-select model (h/limit honeysql-form (hsql/inline 1))))))
+   (first (simple-select model honeysql-form))))
 
 (defn execute!
   "Compile `honeysql-form` and call `jdbc/execute!` against the application DB.
