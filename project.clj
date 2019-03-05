@@ -7,7 +7,7 @@
   :dependencies [[org.clojure/java.classpath "0.3.0"]
                  [org.clojure/java.jdbc "0.7.9"]
                  [org.clojure/tools.logging "0.4.1"]
-                 [org.clojure/tools.namespace "0.2.10"]
+                 [org.clojure/tools.namespace "0.2.11"]
                  [honeysql "0.9.4"]]
   :aliases {"bikeshed" ["bikeshed" "--max-line-length" "118" "--var-redefs" "false"]
             "lint" ["do" ["eastwood"] ["bikeshed"] ["docstring-checker"] ["check-namespace-decls"]]
@@ -16,9 +16,9 @@
             "stop-db" ["shell" "docker" "stop" "toucan_test"]}
   :profiles {:dev {:dependencies [[org.clojure/clojure "1.10.0"]
                                   [expectations "2.1.10"]
-                                  [postgresql "9.3-1102.jdbc41"]]
+                                  [com.microsoft.sqlserver/mssql-jdbc "6.1.0.jre8"]]
                    :plugins [[docstring-checker "1.0.3"]
-                             [jonase/eastwood "0.3.4"
+                             [jonase/eastwood "0.3.5"
                               :exclusions [org.clojure/clojure]]
                              [lein-bikeshed "0.5.1"]
                              [lein-expectations "0.0.8"]
